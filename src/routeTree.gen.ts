@@ -10,14 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CharacterRouteImport } from './routes/character'
 import { Route as ClassRouteImport } from './routes/class'
 import { Route as InventoryRouteImport } from './routes/inventory'
 import { Route as RaceRouteImport } from './routes/race'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as UpgradeRouteImport } from './routes/upgrade'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterRoute = CharacterRouteImport.update({
+  id: '/character',
+  path: '/character',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ClassRoute = ClassRouteImport.update({
@@ -35,6 +42,11 @@ const RaceRoute = RaceRouteImport.update({
   path: '/race',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UpgradeRoute = UpgradeRouteImport.update({
   id: '/upgrade',
   path: '/upgrade',
@@ -43,39 +55,69 @@ const UpgradeRoute = UpgradeRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/character': typeof CharacterRoute
   '/class': typeof ClassRoute
   '/inventory': typeof InventoryRoute
   '/race': typeof RaceRoute
+  '/settings': typeof SettingsRoute
   '/upgrade': typeof UpgradeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/character': typeof CharacterRoute
   '/class': typeof ClassRoute
   '/inventory': typeof InventoryRoute
   '/race': typeof RaceRoute
+  '/settings': typeof SettingsRoute
   '/upgrade': typeof UpgradeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/character': typeof CharacterRoute
   '/class': typeof ClassRoute
   '/inventory': typeof InventoryRoute
   '/race': typeof RaceRoute
+  '/settings': typeof SettingsRoute
   '/upgrade': typeof UpgradeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/class' | '/inventory' | '/race' | '/upgrade'
+  fullPaths:
+    | '/'
+    | '/character'
+    | '/class'
+    | '/inventory'
+    | '/race'
+    | '/settings'
+    | '/upgrade'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/class' | '/inventory' | '/race' | '/upgrade'
-  id: '__root__' | '/' | '/class' | '/inventory' | '/race' | '/upgrade'
+  to:
+    | '/'
+    | '/character'
+    | '/class'
+    | '/inventory'
+    | '/race'
+    | '/settings'
+    | '/upgrade'
+  id:
+    | '__root__'
+    | '/'
+    | '/character'
+    | '/class'
+    | '/inventory'
+    | '/race'
+    | '/settings'
+    | '/upgrade'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CharacterRoute: typeof CharacterRoute
   ClassRoute: typeof ClassRoute
   InventoryRoute: typeof InventoryRoute
   RaceRoute: typeof RaceRoute
+  SettingsRoute: typeof SettingsRoute
   UpgradeRoute: typeof UpgradeRoute
 }
 
@@ -86,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character': {
+      id: '/character'
+      path: '/character'
+      fullPath: '/character'
+      preLoaderRoute: typeof CharacterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/class': {
@@ -109,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RaceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/upgrade': {
       id: '/upgrade'
       path: '/upgrade'
@@ -121,9 +177,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CharacterRoute: CharacterRoute,
   ClassRoute: ClassRoute,
   InventoryRoute: InventoryRoute,
   RaceRoute: RaceRoute,
+  SettingsRoute: SettingsRoute,
   UpgradeRoute: UpgradeRoute,
 }
 export const routeTree = rootRouteImport
