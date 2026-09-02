@@ -61,7 +61,7 @@ const defaultEquipped: Partial<Record<EquipSlotId, string>> = {
 function InventoryScreen() {
   const navigate = useNavigate();
   const [filter, setFilter] = useState<Filter>("all");
-  const [selectedId, setSelectedId] = useState<string>(inventory[0].id);
+  const [selectedId, setSelectedId] = useState<string>(inventory[0]!.id);
   const [hoverId, setHoverId] = useState<string | null>(null);
   const [equipped, setEquipped] = useState(defaultEquipped);
 
