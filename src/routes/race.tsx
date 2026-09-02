@@ -25,7 +25,7 @@ export const Route = createFileRoute("/race")({
 
 function RaceScreen() {
   const navigate = useNavigate();
-  const [selected, setSelected] = useState(races[0].id);
+  const [selected, setSelected] = useState(races[0]!.id);
   const active = races.find((r) => r.id === selected)!;
 
   return (

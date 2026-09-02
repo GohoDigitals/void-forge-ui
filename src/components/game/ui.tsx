@@ -209,17 +209,17 @@ export function ItemSlot({
   className,
   children,
 }: {
-  label?: string;
-  rarity?: Rarity;
-  quantity?: number;
-  selected?: boolean;
-  empty?: boolean;
-  size?: "sm" | "md" | "lg" | "xl";
-  onClick?: () => void;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-  className?: string;
-  children?: ReactNode;
+  label?: string | undefined;
+  rarity?: Rarity | undefined;
+  quantity?: number | undefined;
+  selected?: boolean | undefined;
+  empty?: boolean | undefined;
+  size?: "sm" | "md" | "lg" | "xl" | undefined;
+  onClick?: (() => void) | undefined;
+  onMouseEnter?: (() => void) | undefined;
+  onMouseLeave?: (() => void) | undefined;
+  className?: string | undefined;
+  children?: ReactNode | undefined;
 }) {
   const dims = {
     sm: "h-12 w-12",

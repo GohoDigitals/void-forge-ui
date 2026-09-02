@@ -33,7 +33,7 @@ const icons = {
 
 function ClassScreen() {
   const navigate = useNavigate();
-  const [selected, setSelected] = useState(classes[1].id);
+  const [selected, setSelected] = useState(classes[1]!.id);
   const active = classes.find((c) => c.id === selected)!;
 
   return (
