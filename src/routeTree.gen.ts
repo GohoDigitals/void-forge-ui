@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CharacterRouteImport } from './routes/character'
 import { Route as ClassRouteImport } from './routes/class'
 import { Route as InventoryRouteImport } from './routes/inventory'
+import { Route as PlayRouteImport } from './routes/play'
 import { Route as RaceRouteImport } from './routes/race'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as UpgradeRouteImport } from './routes/upgrade'
@@ -37,6 +38,11 @@ const InventoryRoute = InventoryRouteImport.update({
   path: '/inventory',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlayRoute = PlayRouteImport.update({
+  id: '/play',
+  path: '/play',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RaceRoute = RaceRouteImport.update({
   id: '/race',
   path: '/race',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/character': typeof CharacterRoute
   '/class': typeof ClassRoute
   '/inventory': typeof InventoryRoute
+  '/play': typeof PlayRoute
   '/race': typeof RaceRoute
   '/settings': typeof SettingsRoute
   '/upgrade': typeof UpgradeRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/character': typeof CharacterRoute
   '/class': typeof ClassRoute
   '/inventory': typeof InventoryRoute
+  '/play': typeof PlayRoute
   '/race': typeof RaceRoute
   '/settings': typeof SettingsRoute
   '/upgrade': typeof UpgradeRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/character': typeof CharacterRoute
   '/class': typeof ClassRoute
   '/inventory': typeof InventoryRoute
+  '/play': typeof PlayRoute
   '/race': typeof RaceRoute
   '/settings': typeof SettingsRoute
   '/upgrade': typeof UpgradeRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/character'
     | '/class'
     | '/inventory'
+    | '/play'
     | '/race'
     | '/settings'
     | '/upgrade'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/character'
     | '/class'
     | '/inventory'
+    | '/play'
     | '/race'
     | '/settings'
     | '/upgrade'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/character'
     | '/class'
     | '/inventory'
+    | '/play'
     | '/race'
     | '/settings'
     | '/upgrade'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   CharacterRoute: typeof CharacterRoute
   ClassRoute: typeof ClassRoute
   InventoryRoute: typeof InventoryRoute
+  PlayRoute: typeof PlayRoute
   RaceRoute: typeof RaceRoute
   SettingsRoute: typeof SettingsRoute
   UpgradeRoute: typeof UpgradeRoute
@@ -151,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InventoryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/play': {
+      id: '/play'
+      path: '/play'
+      fullPath: '/play'
+      preLoaderRoute: typeof PlayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/race': {
       id: '/race'
       path: '/race'
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   CharacterRoute: CharacterRoute,
   ClassRoute: ClassRoute,
   InventoryRoute: InventoryRoute,
+  PlayRoute: PlayRoute,
   RaceRoute: RaceRoute,
   SettingsRoute: SettingsRoute,
   UpgradeRoute: UpgradeRoute,

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { character } from "@/lib/game-data";
 
 const nav = [
+  { to: "/play", label: "Gameplay" },
   { to: "/race", label: "Race" },
   { to: "/class", label: "Class" },
   { to: "/inventory", label: "Inventory" },
@@ -70,12 +71,21 @@ export function GameShell({
       <main className="min-h-0 flex-1 overflow-hidden p-5">{children}</main>
 
       <footer className="flex h-12 shrink-0 items-center justify-between border-t border-border bg-surface/80 px-5">
-        <Link
-          to="/"
-          className="label-caps text-muted-foreground transition-colors hover:text-foreground"
-        >
-          &lt; Back to Main Menu
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            to="/play"
+            className="label-caps text-primary transition-colors hover:text-foreground"
+          >
+            &lt; Return to Gameplay
+          </Link>
+          <span className="h-4 w-px bg-border" />
+          <Link
+            to="/"
+            className="label-caps text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Main Menu
+          </Link>
+        </div>
         <div className="flex items-center gap-3">{footer}</div>
       </footer>
     </div>

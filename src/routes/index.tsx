@@ -28,7 +28,7 @@ function MainMenu() {
   const [exiting, setExiting] = useState(false);
 
   const entries = [
-    { label: "Play", desc: "Start a new campaign", to: "/race" as const, disabled: false },
+    { label: "Play", desc: "Launch into combat", to: "/play" as const, disabled: false },
     { label: "Load Game", desc: "3 saved runs", to: "/character" as const, disabled: false },
     { label: "Online Play", desc: "Servers offline", to: "/race" as const, disabled: true },
     { label: "Settings", desc: "Configure the client", to: "/settings" as const, disabled: false },
