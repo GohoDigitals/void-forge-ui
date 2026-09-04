@@ -63,29 +63,30 @@ const weaponSeeds = [
       { n: "Disruptor Pod", sub: "special", r: "rare", lv: 16, p: 4700, atk: 96 },
       { n: "EMP Lattice Gun", sub: "special", r: "epic", lv: 23, p: 13600, atk: 158 },
       { n: "Singularity Caster", sub: "special", r: "legendary", lv: 33, p: 52000, atk: 276 },
-    ].map((w, i) =>
-      def({
-        id: `w${i + 1}`,
-        name: w.n,
-        description: `${w.sub === "melee" ? "Close-quarters" : w.sub === "plasma" ? "Superheated energy" : w.sub === "ranged" ? "Long range kinetic" : "Tactical support"} weapon rated for void combat.`,
-        type: "weapon",
-        subtype: w.sub,
-        rarity: w.r as Rarity,
-        level: w.lv,
-        baseBuyPrice: w.p,
-        slot: w.sub === "special" ? "sidearm" : "weapon",
-        requirements: [`Level ${w.lv}`],
-        stats: [
-          { label: "Damage", value: `+${w.atk}` },
-          { label: "Fire Rate", value: `${(1.2 + (i % 5) * 0.35).toFixed(2)}/s` },
-          { label: "Range", value: `${180 + i * 24} m` },
-          { label: "Accuracy", value: `${62 + (i % 7) * 4}%` },
-          { label: "Crit Chance", value: `${4 + (i % 6) * 2}%` },
-          { label: "Energy Cost", value: `${8 + (i % 5) * 6}` },
-        ],
-      }),
-    )
-  : [];
+];
+
+const weapons: GameItem[] = weaponSeeds.map((w, i) =>
+  def({
+    id: `w${i + 1}`,
+    name: w.n,
+    description: `${w.sub === "melee" ? "Close-quarters" : w.sub === "plasma" ? "Superheated energy" : w.sub === "ranged" ? "Long range kinetic" : "Tactical support"} weapon rated for void combat.`,
+    type: "weapon",
+    subtype: w.sub,
+    rarity: w.r as Rarity,
+    level: w.lv,
+    baseBuyPrice: w.p,
+    slot: w.sub === "special" ? "sidearm" : "weapon",
+    requirements: [`Level ${w.lv}`],
+    stats: [
+      { label: "Damage", value: `+${w.atk}` },
+      { label: "Fire Rate", value: `${(1.2 + (i % 5) * 0.35).toFixed(2)}/s` },
+      { label: "Range", value: `${180 + i * 24} m` },
+      { label: "Accuracy", value: `${62 + (i % 7) * 4}%` },
+      { label: "Crit Chance", value: `${4 + (i % 6) * 2}%` },
+      { label: "Energy Cost", value: `${8 + (i % 5) * 6}` },
+    ],
+  }),
+);
 
 /* --- Armor --- */
 const armorSeeds = [
