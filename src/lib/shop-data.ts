@@ -45,10 +45,7 @@ const def = (s: ItemSeed): GameItem => ({
 const rarityCycle: Rarity[] = ["common", "uncommon", "rare", "epic", "legendary"];
 
 /* --- Weapons --- */
-const weapons: GameItem[] = [
-  ["Railspike R-9", "melee", 0] as const,
-].length
-  ? [
+const weaponSeeds = [
       { n: "Vibro Cleaver", sub: "melee", r: "common", lv: 6, p: 950, atk: 58 },
       { n: "Arc Sabre", sub: "melee", r: "uncommon", lv: 11, p: 2100, atk: 84 },
       { n: "Breacher Maul", sub: "melee", r: "rare", lv: 17, p: 5400, atk: 128 },
