@@ -15,13 +15,13 @@ export function ShopHeader({
   onSelectShop: (id: string) => void;
 }) {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
       <div className="min-w-0">
         <h1 className="truncate text-xl text-foreground">{shop.name}</h1>
         <p className="label-caps text-[10px] text-muted-foreground">{shop.location}</p>
       </div>
 
-      <div className="ml-2 flex items-center gap-1 overflow-x-auto">
+      <div className="flex min-w-0 flex-1 flex-wrap items-center gap-1">
         {shops.map((s) => (
           <GameButton
             key={s.id}
