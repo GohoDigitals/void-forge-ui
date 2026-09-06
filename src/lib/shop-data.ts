@@ -28,8 +28,8 @@ export type GameItem = {
   baseBuyPrice: number;
   baseSellPrice: number;
   stats: { label: string; value: string }[];
-  requirements?: string[];
-  slot?: EquipSlotId;
+  requirements?: string[] | undefined;
+  slot?: EquipSlotId | undefined;
   effect?: string;
   duration?: string;
   usage?: string;
