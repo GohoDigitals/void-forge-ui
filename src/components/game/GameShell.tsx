@@ -8,6 +8,7 @@ const nav = [
   { to: "/race", label: "Race" },
   { to: "/class", label: "Class" },
   { to: "/inventory", label: "Inventory" },
+  { to: "/shop", label: "Shop" },
   { to: "/upgrade", label: "Upgrade" },
   { to: "/character", label: "Character" },
   { to: "/settings", label: "Settings" },

@@ -16,6 +16,7 @@ import { Route as InventoryRouteImport } from './routes/inventory'
 import { Route as PlayRouteImport } from './routes/play'
 import { Route as RaceRouteImport } from './routes/race'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as ShopRouteImport } from './routes/shop'
 import { Route as UpgradeRouteImport } from './routes/upgrade'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const SettingsRoute = SettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UpgradeRoute = UpgradeRouteImport.update({
   id: '/upgrade',
   path: '/upgrade',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/play': typeof PlayRoute
   '/race': typeof RaceRoute
   '/settings': typeof SettingsRoute
+  '/shop': typeof ShopRoute
   '/upgrade': typeof UpgradeRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/play': typeof PlayRoute
   '/race': typeof RaceRoute
   '/settings': typeof SettingsRoute
+  '/shop': typeof ShopRoute
   '/upgrade': typeof UpgradeRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/play': typeof PlayRoute
   '/race': typeof RaceRoute
   '/settings': typeof SettingsRoute
+  '/shop': typeof ShopRoute
   '/upgrade': typeof UpgradeRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/play'
     | '/race'
     | '/settings'
+    | '/shop'
     | '/upgrade'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/play'
     | '/race'
     | '/settings'
+    | '/shop'
     | '/upgrade'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/play'
     | '/race'
     | '/settings'
+    | '/shop'
     | '/upgrade'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   PlayRoute: typeof PlayRoute
   RaceRoute: typeof RaceRoute
   SettingsRoute: typeof SettingsRoute
+  ShopRoute: typeof ShopRoute
   UpgradeRoute: typeof UpgradeRoute
 }
 
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/upgrade': {
       id: '/upgrade'
       path: '/upgrade'
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   PlayRoute: PlayRoute,
   RaceRoute: RaceRoute,
   SettingsRoute: SettingsRoute,
+  ShopRoute: ShopRoute,
   UpgradeRoute: UpgradeRoute,
 }
 export const routeTree = rootRouteImport
