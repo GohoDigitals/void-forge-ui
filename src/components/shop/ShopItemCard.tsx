@@ -36,8 +36,14 @@ export function ShopItemCard({
         (row.soldOut || row.locked) && "opacity-60",
       )}
     >
-      <button type="button" onClick={onSelect} className="flex items-start gap-2 text-left">
-        <ItemSlot label={item.name} rarity={item.rarity} size="sm" />
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={onSelect}
+        onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onSelect()}
+        className="flex cursor-pointer items-start gap-2 text-left"
+      >
+        <ItemSlot label={item.name} rarity={item.rarity} size="sm" onClick={onSelect} />
         <div className="min-w-0 flex-1">
           <div className="truncate font-display text-[11px] tracking-wider text-foreground/90">
             {item.name}
@@ -47,7 +53,7 @@ export function ShopItemCard({
           </div>
           <div className="label-caps text-[9px] text-muted-foreground">{item.subtype}</div>
         </div>
-      </button>
+      </div>
 
       <div className="flex items-end justify-between gap-2">
         <div>
